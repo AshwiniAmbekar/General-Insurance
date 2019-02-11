@@ -19,29 +19,28 @@ import com.lti.repository.GenericRepository;
 @AutoConfigureTestDatabase(replace=Replace.NONE)
 public class RegistrationTest {
 	
-		@Autowired
+		@Autowired(required=true)
 		private GenericRepository registrationRepository;
-		
-		@Autowired
-		private RegistrationEntity registrationEntity;
 		
 		@Test
 		@Transactional
 		public void registerUser() {
-			registrationEntity.setFirstName("Ashwini");
-			registrationEntity.setLastName("Ambekar");
-			registrationEntity.setEmailid("ashwini4here@gmail.com");
-			registrationEntity.setPassword("ashwini@123");
-			registrationRepository.insert(registrationEntity);
+			RegistrationEntity register=new RegistrationEntity();
+			register.setFirstName("Ashwini");
+			register.setLastName("Ambekar");
+			register.setEmailid("ashwini19@gmail.com");
+			register.setPassword("ashwini@19");
+			registrationRepository.insert(register);
 		}
 
 		@Test
 		@Transactional
 		public void fetchAllUser() {
-			registrationEntity.getFirstName();
-			registrationEntity.getLastName();
-			registrationEntity.getEmailid();
-			registrationEntity.getPassword();
+			RegistrationEntity register1=new RegistrationEntity();
+			register1.getFirstName();
+			register1.getLastName();
+			register1.getEmailid();
+			register1.getPassword();
 			registrationRepository.fetchAll(RegistrationEntity.class);	
 		}
 		

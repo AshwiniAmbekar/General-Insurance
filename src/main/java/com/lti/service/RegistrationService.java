@@ -7,11 +7,10 @@ import org.springframework.stereotype.Service;
 import com.lti.entity.RegistrationEntity;
 import com.lti.repository.GenericRepository;
 
-
 @Service
 public class RegistrationService {
 	
-	@Autowired
+	@Autowired(required=true)
 	private GenericRepository registrationRepository;
 	
 	@Transactional
