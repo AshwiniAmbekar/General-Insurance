@@ -16,11 +16,15 @@ public class LoginController {
 	private LoginService loginService;
 	
 	@RequestMapping(path= "/login/verify", method=RequestMethod.POST)
-	public String verify(@RequestBody RegistrationEntity registrationEntity) {
+	public void verify(@RequestBody RegistrationEntity registrationEntity) {
 		boolean flag=loginService.confirmLogin(registrationEntity);
 		String flag1=Boolean.toString(flag);
-		System.out.println("User is verified");
-		return flag1;
+		if(flag1.equals("true")) {
+			System.out.println("User is valid");
+		}
+		else
+			System.out.println("User is invalid");
+		
 	}
 	}
 

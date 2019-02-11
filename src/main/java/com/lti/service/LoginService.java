@@ -5,18 +5,18 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.lti.entity.RegistrationEntity;
-import com.lti.repository.RegistrationRepository;
+import com.lti.repository.GenericRepository;
 
 @Service
 public class LoginService {
 	
 	//Asking spring to create an object for me
 	@Autowired
-	private RegistrationRepository registrationRepository;
+	private GenericRepository registrationRepository;
 	
 	@Transactional
 	public List<RegistrationEntity> fetchAll() {
-		return registrationRepository.fetchAll();
+		return registrationRepository.fetchAll(RegistrationEntity.class);
 	}
 	
 	@Transactional
@@ -24,8 +24,9 @@ public class LoginService {
 		String email=registrationEntity.getEmailid();
 		String password=registrationEntity.getPassword();
 		
-		List<RegistrationEntity> userList = registrationRepository.fetchAll();
+		List<RegistrationEntity> userList = registrationRepository.fetchAll(RegistrationEntity.class);
 		
+		//verifying the credentials
 		for(RegistrationEntity re:userList) {
 			if(email.equals(re.getEmailid())) {
 				if(password.equals(re.getPassword())) {
@@ -35,5 +36,8 @@ public class LoginService {
 			}
 		}
 		return false;
+		}
 	}
-}
+	
+	
+

@@ -5,14 +5,14 @@ import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import com.lti.entity.RegistrationEntity;
-import com.lti.repository.RegistrationRepository;
+import com.lti.repository.GenericRepository;
 
 
 @Service
 public class RegistrationService {
 	
 	@Autowired
-	private RegistrationRepository registrationRepository;
+	private GenericRepository registrationRepository;
 	
 	@Transactional
 	public void add(RegistrationEntity registration) {
@@ -21,7 +21,7 @@ public class RegistrationService {
 	
 	@Transactional
 	public List<RegistrationEntity> fetchAll() {
-		return registrationRepository.fetchAll();
+		return registrationRepository.fetchAll(RegistrationEntity.class);
 	}
 	
 }
