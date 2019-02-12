@@ -15,14 +15,16 @@ public class BuyInsuranceController {
 	@Autowired(required = true)
 	private BuyInsuranceService buyInsuranceService;
 
+	
 	@RequestMapping(path = "/buyInsuranceEntity/add", method = RequestMethod.POST)
 	public String addIntoService(@RequestBody BuyInsuranceEntity buyInsurance) {
 		buyInsuranceService.add(buyInsurance);
 		return "Details filled successfully";
 	}
 
-	/*@RequestMapping(path = "/buyInsuranceEntity/all", method = RequestMethod.GET)
+	
+	@RequestMapping(path = "/buyInsuranceEntity/all", method = RequestMethod.GET)
 	public List<BuyInsuranceEntity> fetchAllFromService() {
 		return buyInsuranceService.fetchAll();
-	}*/
+	}
 }

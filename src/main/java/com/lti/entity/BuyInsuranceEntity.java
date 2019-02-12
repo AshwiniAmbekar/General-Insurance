@@ -1,21 +1,31 @@
 package com.lti.entity;
-
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 @Entity
 public class BuyInsuranceEntity {
 
 	@Id
 	@GeneratedValue
 	private Long registrationNumber;
-
-	private String vehicleType;
+	private int planType;
+	@Temporal(TemporalType.TIMESTAMP)
+	private Date dateAndTime;
+	
+    private String vehicleType;
 	private String vehicleModel;
 	private Long drivingLicence;
 	private int engineNumber;
 
+ public int getPlanType() {
+	 return planType;
+ }
+ public void setPlanType(int planType) {
+	 this.planType=planType;
+ }
 	public String getVehicleType() {
 		return vehicleType;
 	}
@@ -54,6 +64,13 @@ public class BuyInsuranceEntity {
 
 	public void setEngineNumber(int engineNumber) {
 		this.engineNumber = engineNumber;
+	}
+	public Date getDateAndTime() {
+		return dateAndTime;
+	}
+
+	public void setDateAndTime(Date dateAndTime) {
+		this.dateAndTime = dateAndTime;
 	}
 
 }

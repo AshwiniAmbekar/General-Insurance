@@ -1,5 +1,4 @@
 package com.lti.service;
-
 import java.util.List;
 import javax.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,14 +20,14 @@ public class LoginService {
 	
 	@Transactional
 	public boolean confirmLogin(RegistrationEntity registrationEntity) {
-		String email=registrationEntity.getEmailid();
+		String email=registrationEntity.getEmail();
 		String password=registrationEntity.getPassword();
 		
 		List<RegistrationEntity> userList = registrationRepository.fetchAll(RegistrationEntity.class);
 		
 		//verifying the credentials
 		for(RegistrationEntity re:userList) {
-			if(email.equals(re.getEmailid())) {
+			if(email.equals(re.getEmail())) {
 				if(password.equals(re.getPassword())) {
 					boolean flag=true;
 					return flag;

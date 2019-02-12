@@ -18,8 +18,9 @@ public class GenericRepository {
 	
 	@Transactional
 	public void insert(Object obj) {
-		entityManager.persist(obj);
+		entityManager.merge(obj);
 	}
+	
 	
 	@Transactional
 	public <E> List<E> fetchAll(Class<E> classname){
