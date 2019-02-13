@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+    <form #pform="ngForm" ngNativeValidate (ngSubmit)="userRegistration(registrationform)">
+        <div class="register-container">
+            <p>Registration</p>
+            <hr>
+            <div class="registration-fields">
+
+                User Name : <input type="text" [(ngModel)]="registration.userName" name="userName"
+                    placeholder="user-name" required>
+                <br />
+
+                First Name : <input type="text" [(ngModel)]="registration.firstName" name="firstName"
+                    placeholder="First Name" required>
+                <br />
+
+                Last Name : <input type="text" [(ngModel)]="registration.lastName" name="lastName"
+                    placeholder="Last Name" required>
+                <br />
+
+                Gender : <input type="radio" [(ngModel)]="registration.gender" name="role" value="Male"> Male <br>
+                <input type="radio" [(ngModel)]="registration.gender" name="role" value="Female"> Female 
+                <br/>
+
+                Mobile : <input type="tel" [(ngModel)]="registration.mobile" name="mobile" placeholder="Mobile Number"
+                    (keypress)="keyPress($event)" required>
+                <br />
+
+                E-mail Id : <input type="email" [(ngModel)]="registration.emailId" name="emailId" placeholder="Email Id"
+                    required>
+                <br />
+
+                <div class="form-group">
+                Password : <input type="password" [(ngModel)]="registration.password" name="password"
+                    placeholder="Password" required>
+                <br />
+                 </div>
+
+                <div class="form-group">
+                Confirm Password : <input type="password" [(ngModel)]="registration.confirmPassword"
+                    name="confirmPassword" placeholder="Confirm Password" required>
+                <br />
+                </div>
+                <p>{{array['password']}}</p>
+
+                Address : <input type="text" [(ngModel)]="registration.address" name="address" placeholder="Address"
+                    required>
+                <br />
+
+                City : <input type="text" [(ngModel)]="registration.city" name="city" placeholder="City" required>
+                <br />
+
+                State : <input type="text" [(ngModel)]="registration.state" name="state" placeholder="State" required>
+                <br />
+
+                <input type="hidden" [(ngModel)]="registration.role" name="role" value="0">
+
+                <input type="submit" value="Register" />
+
+            </div>
+        </div>
+    </form>
+
+</body>
+
+</html>
