@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        input[type=text],
+        select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid black;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+         div.login-container {
+            height: 350px;
+            width: 500px;
+            border: 2px solid gray;
+            border-width: 4px;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 400;
+            
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form #pform="ngForm" ngNativeValidate (ngSubmit)="userlogin(loginform)">
+        <div class="login-container">
+            <p>Login</p>
+            <hr>
+            <div class="login-fields">
+                <table>
+
+                    <tr>
+                        <td>Email Id :</td>
+                        <td> <input type="text" [(ngModel)]="login.email" name="username" placeholder="Email Id"
+                                required><br /></td>
+                    </tr>
+
+                    <tr>
+                        <td> Password : </td>
+                        <td><input type="password" [(ngModel)]="login.password" name="password" placeholder="Password"
+                                required><br /></td>
+                    </tr>
+                </table>
+                <button type="submit" value="Submit">Sign In</button>
+
+
+            </div>
+        </div>
+    </form>
+
+    <div>
+        <router-outlet></router-outlet>
+    </div>
+</body>
+
+</html>

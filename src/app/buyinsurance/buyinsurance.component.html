@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<body>
+
+  <form #pform="ngForm" ngNativeValidate (ngSubmit)="purchase(purchaseForm)">
+    <div class="insurance-container">
+      <p>Buy Insurance</p>
+      <hr>
+      <div>
+        <table>
+          <tr>
+            
+            <td>Plan:</td> <td><input type="radio" [(ngModel)]="buyinsurance.planType" name="plan" value="1"> One Year <br>
+            <input type="radio" [(ngModel)]="buyinsurance.planType" name="plan" value="2"> Two Year <br>
+            <input type="radio" [(ngModel)]="buyinsurance.planType" name="plan" value="3"> Three Year <br>
+            <br /></td></tr>
+            
+           <tr><td> Date & Time:</td><td><input type="date" [(ngModel)]="buyinsurance.dateAndTime" name="dateAndTime" required>
+            <br /></td></tr>
+            <tr><td>Vehicle Type :</td><td> <input type="text" [(ngModel)]="buyinsurance.vehicleType" name="vehicleType"
+              placeholder="Two wheeler" required>
+            <br /></td></tr>
+           <tr><td> Model :</td><td> <input type="text" [(ngModel)]="buyinsurance.model" name="model" placeholder="Model" required>
+            <br /></td></tr>
+            <tr><td>Driving License :</td><td> <input type="number" [(ngModel)]="buyinsurance.drivingLicence" name="drivingLicense"
+              placeholder="Driving license" required>
+            <br /></td></tr>
+      <tr><td>Engine Number :</td><td><input type="number" [(ngModel)]="buyinsurance.engineNumber" name="engineNumber"
+              placeholder="Engine Number" required>
+            <br /></td></tr> 
+
+          
+          <input type="hidden" [(ngModel)]="r" name="role" value="0">
+
+         <input type="submit" value="Submit" />
+        </table>
+      </div>
+    </div>
+  </form>
+</body>
+
+</html>

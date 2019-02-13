@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <style>
+        input[type=text],
+        select {
+            width: 100%;
+            padding: 12px 20px;
+            margin: 8px 0;
+            display: inline-block;
+            border: 1px solid black;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        /* p {
+            text-align: center;
+        } */
+
+        div.login-container {
+            height: 350px;
+            width: 500px;
+            border: 2px solid black;
+            border-width: 4px;
+            border-radius: 12px;
+            padding: 20px;
+            margin: auto;
+            /* position: absolute; */
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        input[type=submit] {
+            width: 100%;
+            background-color: purple;
+            color: white;
+            padding: 14px 20px;
+            margin: 8px 0;
+
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        input[type=submit]:hover {
+            background-color: aqua;
+        }
+    </style>
+</head>
+
+<body>
+
+    <form #pform="ngForm" ngNativeValidate (ngSubmit)="adminlogin(adminform)">
+        <div class="admin-container">
+            <p>Admin Login</p>
+            <hr>
+            <div class="admin-fields">
+                <table>
+
+                <tr><td>Email Id :</td><td> <input type="text" [(ngModel)]="admin.email" name="adminname" placeholder="Email Id"
+                    required>
+                <br /></td></tr>
+               
+                <tr><td> Password : </td><td><input type="password" [(ngModel)]="admin.password" name="password" placeholder="Password"
+                    required><br/></td></tr>
+
+                <tr><td> Type:</td><td><input type="radio" [(ngModel)]="login.role" name="role" value="0"> User<br></td></tr>
+                <tr><td></td> <td>     <input type="radio" [(ngModel)]="login.role" name="role" value="1"> Admin<br></td></tr>
+            </table>
+                <button type="submit" value="Submit" >Sign In</button>
+            
+
+            </div>
+        </div>
+    </form>
+    
+    <div>
+    <router-outlet></router-outlet>
+    </div>
+</body>
+
+</html>
